@@ -1,0 +1,95 @@
+<!DOCTYPE html> {% load static %}
+<html>
+
+<head>
+    <title>Tienda en línea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #5564eb;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        .search-bar {
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .search-input {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        
+        .search-button {
+            background-color: Blue;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        .cart-icon {
+            font-size: 24px;
+            margin-right: 20px;
+        }
+        
+        .productos {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .producto {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    
+
+    <header>
+
+
+        <form method="post" action="{% url 'carrito' %}">
+            {% csrf_token %}
+            <button type "submit"><span class="cart-icon">&#128722;</span></button>
+        </form>
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Buscar productos...">
+            <button class="search-button">Buscar</button>
+        </div>
+    </header>
+    <div class="productos">
+        <h2>Productos Disponibles</h2>
+        <div class="producto">
+            <img src="{% static "imagenes/coca.jpg" %}" alt="Pollo">
+            <h3>Coca cola</h3>
+            <p>Precio: $10.00</p>
+            <button class="search-button">Añadir al carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="{% static  "imagenes/pollo.jpg" %}" alt="Producto 2">
+            <h3>Pollo</h3>
+            <p>Precio: $15.00</p>
+            <button class="search-button">Añadir al carrito</button>
+        </div>
+    </div>
+</body>
+
+</html>
